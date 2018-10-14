@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.belatrix</groupId>
+    <artifactId>belatrix</artifactId>
+    <version>1.001-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <additionalparam>-Xdoclint:none</additionalparam>
+
+        <pedantic.enforcers>MODULE_ORDER,DEPENDENCY_CONFIGURATION,DEPENDENCY_SCOPE,PLUGIN_CONFIGURATION</pedantic.enforcers>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <!-- Trigger the "docker" profile automatically when the project is cut -->
+                <!-- This ensures that the cut version of the docker image is released  -->
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <releaseProfiles>docker</releaseProfiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
