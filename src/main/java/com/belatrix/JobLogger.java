@@ -39,14 +39,6 @@ public class JobLogger {
         this.dbParams = dbParamsMap;
     }
 
-    public void test() {
-        System.out.println("=================");
-        System.out.println(logToFile);
-        System.out.println(logToConsole);
-        System.out.println(logToDatabase);
-        System.out.println("=================");
-    }
-
     public void logMessage(String messageText, boolean message, boolean warning, boolean error) throws RuntimeException, IOException, SQLException {
         if (messageText == null || messageText.trim().length() == 0) {
             throw new RuntimeException("The message text must be specified.");
